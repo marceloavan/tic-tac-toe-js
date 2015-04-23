@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="/js/tic-tac-toe.js"></script>
+    <link rel="stylesheet" href="/css/tic-tac-toe.css"/>
+    <title> -- TIC TAC TOE -- </title>
+  </head>
+  <body>
+    <div id="box-head">
+      <div id="box-players">
+      	<span>Player 1: </span><input type="text" id="input-player1"><br>
+      	<span>Player 2: </span><input type="text" id="input-player2">
+      	<input type="button" value="Start" onclick="__init__()">
+      </div>
+
+      <div id="box-score">
+        <span id="output-player1"/><span id="score-player1"/><br/>
+        <span id="output-player2"/><span id="score-player2"/>
+      </div>
+
+    </div>
+    <div id="box-table-ttt">
+      <table id="table-ttt">
+
+      <tr>
+	      <td class="cell-option cell-left-side">
+          <div id="mtrz_00" onclick="tictactoe.select('00')" class="cell-option-action"></div>
+        </td>
+	      <td class="cell-option">
+          <div id="mtrz_01" onclick="tictactoe.select('01')" class="cell-option-action"></div>
+        </td>
+	      <td class="cell-option cell-right-side">
+          <div id="mtrz_02" onclick="tictactoe.select('02')" class="cell-option-action"></div>
+        </td>
+	    </tr>
+
+	    <tr>
+	      <td class="cell-option cell-left-side">
+          <div id="mtrz_10" onclick="tictactoe.select('10')" class="cell-option-action"></div>
+        </td>
+	      <td class="cell-option">
+          <div id="mtrz_11" onclick="tictactoe.select('11')" class="cell-option-action"></div>
+        </td>
+	      <td class="cell-option cell-right-side">
+          <div id="mtrz_12" onclick="tictactoe.select('12')" class="cell-option-action"></div>
+        </td>
+	    </tr>
+
+      <tr>
+	      <td class="cell-option cell-left-side" style="border-bottom: 0 !important;">
+          <div id="mtrz_20" onclick="tictactoe.select('20')" class="cell-option-action"></div>
+        </td>
+	      <td class="cell-option" style="border-bottom: 0 !important;">
+          <div id="mtrz_21" onclick="tictactoe.select('21')" class="cell-option-action"></div>
+        </td>
+	      <td class="cell-option cell-right-side" style="border-bottom: 0 !important;">
+          <div id="mtrz_22" onclick="tictactoe.select('22')" class="cell-option-action"></div>
+        </td>
+	    </tr>
+
+	  </table>
+    </div>
+  </body>
+</html>
