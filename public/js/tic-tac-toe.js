@@ -1,6 +1,6 @@
 /* prototypes */
 function Player(name, symbol) {
-  this.name = name;
+  this.name   = name;
   this.symbol = symbol;
 }
 
@@ -19,18 +19,14 @@ function TicTacToe(player1, player2) {
 
   /* functions */
   this.init = function(prefixId) {
-    this.reset();
     this.currentPlayer = null;
     this.qtdMoves      = 0;
     this.qtdGames      = 1;
-    this.prefixId      = prefixId;
+    this.prefixId      = prefixId != null ? prefixId : 'mtrz_';
+    this.reset();
   }
 
-  this.init = function() {
-      this.init('mtrz_');
-  }
-
-  this.select = function(position){
+  this.select = function(position) {
     this.qtdMoves++;
 
     var selected = this.getTicTacToeElement(position);
