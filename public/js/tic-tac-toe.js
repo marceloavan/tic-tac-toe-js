@@ -53,7 +53,6 @@ function TicTacToe(player1, player2) {
   this.checkGame = function() {
     currSymbol = this.currentPlayer.symbol;
 
-
   }
 
   this.getTicTacToeElement = function(position) {
