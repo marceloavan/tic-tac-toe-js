@@ -18,7 +18,7 @@ function TicTacToe(player1, player2) {
   this.qtdGames       = 1;
 
   /* functions */
-  this.init = function(prefixId) {
+  TicTacToe.prototype.init = function(prefixId) {
     this.currentPlayer = null;
     this.qtdMoves      = 0;
     this.qtdGames      = 1;
@@ -26,10 +26,10 @@ function TicTacToe(player1, player2) {
     this.reset();
   }
 
-  this.select = function(position) {
+  TicTacToe.prototype.select = function(position) {
     this.qtdMoves++;
 
-    var selected = this.getTicTacToeElement(position);
+    var selected = this.getElementPosition(position);
 
     if (this.qtdMoves % 2 == 0) {
       this.currentPlayer = this.player1;
@@ -50,20 +50,20 @@ function TicTacToe(player1, player2) {
     }
   }
 
-  this.checkGame = function() {
+  TicTacToe.prototype.checkGame = function() {
     currSymbol = this.currentPlayer.symbol;
 
   }
 
-  this.getTicTacToeElement = function(position) {
+  TicTacToe.prototype.getElementPosition = function(position) {
     return document.getElementById('' + this.prefixId + position);
   }
 
-  this.showMessage = function(message) {
+  TicTacToe.prototype.showMessage = function(message) {
     alert(message);
   }
 
-  this.reset = function() {
+  TicTacToe.prototype.reset = function() {
     this.resetPosition('00');
     this.resetPosition('01');
     this.resetPosition('02');
@@ -80,8 +80,8 @@ function TicTacToe(player1, player2) {
     this.qtdGames++;
   }
 
-  this.resetPosition = function(position) {
-    var element = this.getTicTacToeElement(position);
+  TicTacToe.prototype.resetPosition = function(position) {
+    var element = this.getElementPosition(position);
     element.textContent = '';
     element.setAttribute('style', 'pointer-events: auto;');
   }
