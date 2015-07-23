@@ -1,64 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ticTacToe">
   <head>
-    <script type="text/javascript" src="/js/tic-tac-toe.js"></script>
+    <!-- Libs -->
+    <script type="text/javascript" src="/lib/tictactoe/tic-tac-toe.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular.js"></script>
+    <link rel="stylesheet" href="/lib/bootstrap/bootstrap.css"/>
+
+    <!-- App -->
+    <script type="text/javascript" src="/js/appClient.js"></script>
+    <script type="text/javascript" src="/js/controllers/mainController.js"></script>
     <link rel="stylesheet" href="/css/tic-tac-toe.css"/>
+
     <title> -- TIC TAC TOE -- </title>
   </head>
-  <body>
-    <div id="box-head">
-      <div id="box-players">
-      	<span>Player 1: </span><input type="text" id="input-player1"><br>
-      	<span>Player 2: </span><input type="text" id="input-player2">
-      	<input type="button" value="Start" onclick="__init__()">
-      </div>
 
-      <div id="box-score">
-        <span id="output-player1"/><span id="score-player1"/><br/>
-        <span id="output-player2"/><span id="score-player2"/>
-      </div>
+  <body ng-controller="mainController">
 
+    <div id="box-head" class="jumbotron">
+      <div id="box-players" class="box-defaults">
+        <form name="playerForm">
+        	<input class="form-control form-control-exp" type="text" ng-model="player1.name" placeholder="Player 1">
+        	<input class="form-control form-control-exp" type="text" ng-model="player2.name" placeholder="Player 2">
+        </form>
+        <input class="btn btn-custom-black btn-block" type="button" value="Start" ng-click="initTicTacToe(player1, player2)">
+      </div>
     </div>
-    <div id="box-table-ttt">
+
+    <!-- GAME BOX - BEGIN -->
+    <div id="box-table-ttt" class="box-defaults">
       <table id="table-ttt">
-
-      <tr>
-	      <td class="cell-option cell-left-side">
-          <div id="mtrz_00" onclick="tictactoe.select('00')" class="cell-option-action"></div>
-        </td>
-	      <td class="cell-option">
-          <div id="mtrz_01" onclick="tictactoe.select('01')" class="cell-option-action"></div>
-        </td>
-	      <td class="cell-option cell-right-side">
-          <div id="mtrz_02" onclick="tictactoe.select('02')" class="cell-option-action"></div>
-        </td>
-	    </tr>
-
-	    <tr>
-	      <td class="cell-option cell-left-side">
-          <div id="mtrz_10" onclick="tictactoe.select('10')" class="cell-option-action"></div>
-        </td>
-	      <td class="cell-option">
-          <div id="mtrz_11" onclick="tictactoe.select('11')" class="cell-option-action"></div>
-        </td>
-	      <td class="cell-option cell-right-side">
-          <div id="mtrz_12" onclick="tictactoe.select('12')" class="cell-option-action"></div>
-        </td>
-	    </tr>
-
-      <tr>
-	      <td class="cell-option cell-left-side" style="border-bottom: 0 !important;">
-          <div id="mtrz_20" onclick="tictactoe.select('20')" class="cell-option-action"></div>
-        </td>
-	      <td class="cell-option" style="border-bottom: 0 !important;">
-          <div id="mtrz_21" onclick="tictactoe.select('21')" class="cell-option-action"></div>
-        </td>
-	      <td class="cell-option cell-right-side" style="border-bottom: 0 !important;">
-          <div id="mtrz_22" onclick="tictactoe.select('22')" class="cell-option-action"></div>
-        </td>
-	    </tr>
-
-	  </table>
+        <tr>
+  	      <td class="cell-option cell-left-side">
+            <div id="mtrz_00" ng-click="tictactoe.select('00')" class="cell-option-action"></div>
+          </td>
+  	      <td class="cell-option">
+            <div id="mtrz_01" ng-click="tictactoe.select('01')" class="cell-option-action"></div>
+          </td>
+  	      <td class="cell-option cell-right-side">
+            <div id="mtrz_02" ng-click="tictactoe.select('02')" class="cell-option-action"></div>
+          </td>
+  	    </tr>
+  	    <tr>
+  	      <td class="cell-option cell-left-side">
+            <div id="mtrz_10" ng-click="tictactoe.select('10')" class="cell-option-action"></div>
+          </td>
+  	      <td class="cell-option">
+            <div id="mtrz_11" ng-click="tictactoe.select('11')" class="cell-option-action"></div>
+          </td>
+  	      <td class="cell-option cell-right-side">
+            <div id="mtrz_12" ng-click="tictactoe.select('12')" class="cell-option-action"></div>
+          </td>
+  	    </tr>
+        <tr>
+  	      <td class="cell-option cell-left-side" style="border-bottom: 0 !important;">
+            <div id="mtrz_20" ng-click="tictactoe.select('20')" class="cell-option-action"></div>
+          </td>
+  	      <td class="cell-option" style="border-bottom: 0 !important;">
+            <div id="mtrz_21" ng-click="tictactoe.select('21')" class="cell-option-action"></div>
+          </td>
+  	      <td class="cell-option cell-right-side" style="border-bottom: 0 !important;">
+            <div id="mtrz_22" ng-click="tictactoe.select('22')" class="cell-option-action"></div>
+          </td>
+  	    </tr>
+  	  </table>
     </div>
+    <!-- GAME BOX - END -->
+
+    <div id="box-results" class="results jumbotron box-defaults">
+      <p>{{player1.name + ' - ' + player1.winners}}</p>
+      <p>{{player2.name + ' - ' + player2.winners}}</p>
+      <p>{{'Velha - ' + tictactoe.noWinner}}</p>
+    </div>
+
   </body>
 </html>

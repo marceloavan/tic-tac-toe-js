@@ -1,4 +1,10 @@
 /* CSS FILE FOR TIC-TAC-TOE-JS GAME*/
+body {
+	margin: 0px;
+	background-color: #B8B8B8;
+	font-family: monospace;
+}
+
 .cell-option-action {
 	position: relative;
 	width: 100%;
@@ -6,8 +12,8 @@
 	cursor: pointer;
 	pointer-events: none;
 	text-align: center;
-	font-size: 65pt;
-	font-family: sans-serif;
+	font-size: 50pt;
+	font-family: monospace;
 }
 
 .cell-option-action:hover {
@@ -40,42 +46,58 @@
 	border-collapse: collapse;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 44px;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 #box-table-ttt {
-	width: 400px;
-	height: 400px;
+	height: 350px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 0px;
 	display: flex;
-	background-color: #787878;
-	border-left: 1px solid #101010;
-	border-right: 1px solid #101010;
-	border-bottom: 1px solid #101010;
 }
 
 #box-head {
-	height: 55px;
 	background-color: #787878;
-	width: 100%;
-	border-bottom: 1px solid #101010;
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-bottom: 0px;
 }
 
 #box-players {
-	position: absolute;
-	width: auto;
-	margin: 5px;
+	margin-top: 0px;
 }
 
-#box-score {
-	position: absolute;
-	width: auto;
-	margin: 5px;
+.results p {
+	font-size: 10pt;
+	padding: 5px;
 }
 
-body {
-	margin: 0px;
-	background-color: #B8B8B8;
+.box-defaults {
+	width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #787878 !important;
+	border-radius: 4px;
+	margin-top: 5px;
+}
+
+/* EXTESION OF BOTSTRAP */
+.form-control-exp {
+	margin-bottom: 5px;
+}
+
+.btn-custom-black {
+	background-color: #000;
+	color: #fff;
+}
+
+.btn-custom-black:hover {
+	color: #999 !important;
+}
+
+.btn-custom-black:active,
+.btn-custom-black:checked {
+	color: #555 !important;
 }
