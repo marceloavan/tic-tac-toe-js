@@ -19,10 +19,10 @@
     <div id="box-head" class="jumbotron">
       <div id="box-players" class="box-defaults">
         <form name="playerForm">
-        	<input class="form-control form-control-exp" type="text" ng-model="player1.name" placeholder="Player 1">
-        	<input class="form-control form-control-exp" type="text" ng-model="player2.name" placeholder="Player 2">
+        	<input class="form-control form-control-exp" type="text" ng-model="player1Form.name" placeholder="Player 1">
+        	<input class="form-control form-control-exp" type="text" ng-model="player2Form.name" placeholder="Player 2">
         </form>
-        <input class="btn btn-custom-black btn-block" type="button" value="Start" ng-click="initTicTacToe(player1, player2)">
+        <input class="btn btn-custom-black btn-block" type="button" value="Start" ng-click="initTicTacToe(player1Form, player2Form)">
       </div>
     </div>
 
@@ -66,10 +66,25 @@
     </div>
     <!-- GAME BOX - END -->
 
-    <div id="box-results" class="results jumbotron box-defaults">
-      <p>{{player1.name + ' - ' + player1.winners}}</p>
-      <p>{{player2.name + ' - ' + player2.winners}}</p>
-      <p>{{'Velha - ' + tictactoe.noWinner}}</p>
+    <div id="box-results" ng-show="initialized" class="results jumbotron box-defaults">
+      <table class="table table-score">
+  			<tr>
+  				<th>Player</th>
+  				<th>Score</th>
+  			</tr>
+  			<tr>
+  				<td>{{tictactoe.player1.fullName()}}</td>
+  				<td class="td-score">{{tictactoe.player1.score}}</td>
+  			</tr>
+        <tr>
+  				<td>{{tictactoe.player2.fullName()}}</td>
+  				<td class="td-score">{{tictactoe.player2.score}}</td>
+  			</tr>
+        <tr>
+  				<td>Velha</td>
+  				<td class="td-score">{{tictactoe.noWinner}}</td>
+  			</tr>
+  		</table>
     </div>
 
   </body>

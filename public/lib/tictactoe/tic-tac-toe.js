@@ -1,4 +1,14 @@
 /* prototypes */
+function Player(name, symbol) {
+  this.name = name;
+  this.symbol = symbol;
+  this.score = 0;
+
+  Player.prototype.fullName = function() {
+    return this.name + ' [' + this.symbol + ']';
+  }
+}
+
 function TicTacToe(player1, player2) {
   this.player1       = player1;
   this.player2       = player2;
@@ -39,8 +49,8 @@ function TicTacToe(player1, player2) {
 
     var gameOver = false;
     if (qtdMoves >= minMoves && this.checkGame()) {
-      currentPlayer.winners++;
-      this.showMessage('Jogador ' + currentPlayer.name + ' ganhou!');
+      currentPlayer.score++;
+      this.showMessage('Jogador ' + currentPlayer.fullName() + ' ganhou!');
       gameOver = true;
     } else if (qtdMoves == maxMoves) {
       this.noWinner++;

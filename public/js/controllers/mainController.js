@@ -1,14 +1,16 @@
 angular.module("ticTacToe").controller("mainController", function ($scope) {
   $scope.app = "Tic Tac Toe JS";
 
-  $scope.initTicTacToe = function(player1, player2) {
-    player1.winners = 0;
-    player1.symbol = 'X';
+  $scope.initTicTacToe = function(player1Form, player2Form) {
+    player1 = new Player(player1Form.name, 'X');
+    player2 = new Player(player2Form.name, 'O');
 
-    player2.winners = 0;
-    player2.symbol = 'O';
+    player1Form.name = '';
+    player2Form.name = '';
 
     $scope.tictactoe = new TicTacToe(player1, player2);
     $scope.tictactoe.init();
+
+    $scope.initialized = true;
   }
 });

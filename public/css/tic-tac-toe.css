@@ -60,18 +60,13 @@ body {
 #box-head {
 	background-color: #787878;
 	text-align: center;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	margin-bottom: 0px;
 }
 
 #box-players {
 	margin-top: 0px;
-}
-
-.results p {
-	font-size: 10pt;
-	padding: 5px;
 }
 
 .box-defaults {
@@ -81,6 +76,24 @@ body {
 	background-color: #787878 !important;
 	border-radius: 4px;
 	margin-top: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.table-score {
+	font-size: 10pt;
+	border: none;
+}
+
+.table-score > tbody > tr > th,
+.table-score > tbody > tr > td {
+	border-top: none;
+	padding: 3px;
+}
+
+.td-score {
+	text-align: right;
+	padding-right: 5px;
 }
 
 /* EXTESION OF BOTSTRAP */
