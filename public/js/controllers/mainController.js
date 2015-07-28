@@ -8,6 +8,8 @@ angular.module("ticTacToe").controller("mainController", function ($scope) {
     player1Form.name = '';
     player2Form.name = '';
 
+    $scope.playerForm.$setPristine();
+
     $scope.tictactoe = new TicTacToe(player1, player2);
     $scope.tictactoe.init();
 

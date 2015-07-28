@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html ng-app="ticTacToe">
   <head>
+    <meta charset="UTF-8">
+
     <!-- Libs -->
     <script type="text/javascript" src="/lib/tictactoe/tic-tac-toe.js"></script>
     <script type="text/javascript" src="/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular-messages.js"></script>
     <link rel="stylesheet" href="/lib/bootstrap/bootstrap.css"/>
 
     <!-- App -->
@@ -18,11 +21,35 @@
 
     <div id="box-head" class="jumbotron">
       <div id="box-players" class="box-defaults">
+
+        <div ng-show="playerForm.$submitted" ng-messages="playerForm.$error">
+    			<div ng-message="required" class="alert alert-danger">
+    				Todos os campos são obrigatórios!
+    			</div>
+    		</div>
+
         <form name="playerForm">
-        	<input class="form-control form-control-exp" type="text" ng-model="player1Form.name" placeholder="Player 1">
-        	<input class="form-control form-control-exp" type="text" ng-model="player2Form.name" placeholder="Player 2">
+        	<!-- PLAYER 1 -->
+          <input class="form-control form-control-exp" type="text" ng-model="player1Form.name" ng-required="true"
+              name="p1Name" placeholder="Player 1">
+          <div ng-show="playerForm.p1Name.$error.required && playerForm.p1Name.$dirty"
+              class="alert alert-custom alert-danger">
+      			Informe o nome do Player 1!
+      		</div>
+
+          <!-- PLAYER 2 -->
+        	<input class="form-control form-control-exp" type="text" ng-model="player2Form.name" ng-required="true"
+              name="p2Name" placeholder="Player 2">
+          <div ng-show="playerForm.p2Name.$error.required && playerForm.p2Name.$dirty"
+              class="alert alert-custom alert-danger">
+      			Informe o nome do Player 2!
+      		</div>
+
         </form>
-        <input class="btn btn-custom-black btn-block" type="button" value="Start" ng-click="initTicTacToe(player1Form, player2Form)">
+
+        <input class="btn btn-primary btn-block" type="button" value="Start"
+            ng-click="initTicTacToe(player1Form, player2Form)"
+            ng-disabled="playerForm.$invalid">
       </div>
     </div>
 
@@ -70,7 +97,7 @@
       <table class="table table-score">
   			<tr>
   				<th>Player</th>
-  				<th>Score</th>
+  				<th class="td-score">Score</th>
   			</tr>
   			<tr>
   				<td>{{tictactoe.player1.fullName()}}</td>

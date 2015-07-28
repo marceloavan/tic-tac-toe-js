@@ -66,6 +66,7 @@ body {
 }
 
 #box-players {
+	background-color: transparent !important;
 	margin-top: 0px;
 }
 
@@ -101,16 +102,6 @@ body {
 	margin-bottom: 5px;
 }
 
-.btn-custom-black {
-	background-color: #000;
-	color: #fff;
-}
-
-.btn-custom-black:hover {
-	color: #999 !important;
-}
-
-.btn-custom-black:active,
-.btn-custom-black:checked {
-	color: #555 !important;
+.alert-custom {
+	font-size: 10pt;
 }
