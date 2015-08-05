@@ -71,7 +71,7 @@ body {
 }
 
 .box-defaults {
-	width: 350px;
+	max-width: 350px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #787878 !important;
