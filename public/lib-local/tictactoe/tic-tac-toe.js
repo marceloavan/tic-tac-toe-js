@@ -1,4 +1,3 @@
-/* prototypes */
 function Player(name, symbol) {
   this.name = name;
   this.symbol = symbol;
@@ -25,7 +24,6 @@ function TicTacToe(player1, player2) {
   var qtdGames       = 1;
   var mtrz           = [[],[],[]];
 
-  /* functions */
   TicTacToe.prototype.init = function(prefixIdArg) {
     currentPlayer = null;
     qtdMoves      = 0;
@@ -50,11 +48,11 @@ function TicTacToe(player1, player2) {
     var gameOver = false;
     if (qtdMoves >= minMoves && this.checkGame()) {
       currentPlayer.score++;
-      this.showMessage('Jogador ' + currentPlayer.fullName() + ' ganhou!');
+      this.showMessage('Player ' + currentPlayer.fullName() + ' won!');
       gameOver = true;
     } else if (qtdMoves == maxMoves) {
       this.noWinner++;
-      this.showMessage('Deu velha');
+      this.showMessage('No winners ;(');
       gameOver = true;
     }
 
@@ -107,8 +105,8 @@ function TicTacToe(player1, player2) {
         }
       }
 
-      if (rowsMatched === 3 || columnsMatched === 3
-          || parallelOneMatched === 3 || parallelTwoMatched === 3 ) {
+      if (rowsMatched === 3 || columnsMatched === 3 || parallelOneMatched === 3
+          || parallelTwoMatched === 3 ) {
         return true;
       }
     }
