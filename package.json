@@ -2,7 +2,20 @@
   "name": "tic-tac-toe-js",
   "version": "0.0.1",
   "private": true,
+
+  "scripts": {
+    "postinstall": "HOME=$OPENSHIFT_REPO_DIR bower install || bower install",
+    "start": "node app.js"
+  },
+  "main": "app.js",
+
+  "engines": {
+    "node": ">= 0.10.25",
+    "npm": ">= 1.0.0"
+  },
+
   "dependencies": {
+    "bower": "~1.6.5",
     "express": "~4.2.0"
   }
 }
